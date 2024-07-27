@@ -1,0 +1,110 @@
+
+.background-preview {
+    border: 3px dashed grey;
+    flex-grow: 1;
+}
+
+.navbar{
+    background-color: #16161A;
+    opacity: 0.95;
+}
+
+.main{
+    background-color: #16161A;
+}
+
+.footer{
+    background-color: #16161A;
+}
+
+.footer p{
+    margin-left: 40px;
+    color: #2CB67D;
+}
+
+
+
+.title-area {
+    background-color: black;
+    background-image: url('images/background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 1.5rem;
+    min-height: calc(75vh);
+}
+
+.courses-list .row:hover {
+    cursor: pointer;
+    border: 1px solid black !important;
+}
+
+.course-logo {
+    min-width: 170px;
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body h6{
+    color: #2CB67D;
+}
+
+.reviews h6{
+    color: #2CB67D;
+
+}
+
+.MyReviews p{
+    color: #f7f7f7;
+    margin-left: 30px;
+
+}
+
+.ModReviews p{
+    color: #f7f7f7;
+    margin-left: 30px;
+}
+
+.ModReviews h6{
+    color: #2CB67D;
+}
+
+.book_review span{
+    color: #2CB67D;
+
+}
+.book_review p{
+    color: #f7f7f7;
+
+}
+
+.edit_book{
+    color: #2CB67D;
+}
+
+
+.card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.iconki {
+    margin: 0 5px;
+
+}
+
+.EasyMDEContainer{
+    background-color: darkgrey;
+}
+

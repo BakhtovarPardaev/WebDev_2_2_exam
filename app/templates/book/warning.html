@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <!-- Modal -->
+    <div class="modal mt-5" tabindex="-1" id="apologyModal" data-bs-backdrop="static" data-bs-keyboard="false"  >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title">Нельзя менять адрес строки, при повторном нарушении вы будете забанены </h6>
+                </div>
+                <div class="modal-body">
+                    <p>Введите "Извиняюсь" для продолжения.</p>
+                    <form id="apologyForm" action="{{ url_for('book.show', book_id=book.id) }}" method="GET">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="apologyInput" name="apology" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3" id="submitButton" disabled>Простите меня</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#apologyModal').modal('show');
+            $('#apologyInput').on('input', function() {
+                if ($(this).val().toLowerCase() === 'извиняюсь') {
+                    $('#submitButton').prop('disabled', false);
+                } else {
+                    $('#submitButton').prop('disabled', true);
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

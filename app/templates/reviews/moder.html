@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% from 'pagination.html' import pagination %}
+{% block content %}
+
+{% if reviews %}
+<div class="container mt-5">
+
+    {% for review in reviews %}
+    <div class="d-flex border mt-3">
+        <div class="ModReviews flex-grow-1 col-9">
+            <h5 class="text-light ms-3  mt-2">{{ review.get_user() }}: Оценка {{ review.rating }}</h5>
+            <p><span>{{ review.text | safe }}</span></p>
+        </div>
+
+        {% if review.status == 1 %}
+        <div class="flex-grow-1  row justify-content-center align-items-center">
+            <div class="btn-group align-middle w-50">
+                <a class="btn btn-primary justify-content-center"
+                    href="{{ url_for('check_review', review_id=review.id) }}">Рассмотреть</a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if review.status == 2 %}
+        <h6> Рецензия одобрена </h6>
+        {% endif %}
+
+        {% if review.status == 3 %}
+        <h6> Рецензия отклонена </h6>
+        {% endif %}
+
+    </div>
+    {% endfor %}
+
+    <div class="my-5">
+        {{ pagination(page, page_count, request.endpoint) }}
+    </div>
+
+</div>
+{% endif %}
+
+
+
+{% endblock %}

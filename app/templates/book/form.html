@@ -1,0 +1,60 @@
+{% macro render_book_form(url, genres, book={}, selected_genres_list=[]) %}
+<form action="{{ url }}" method="POST" enctype="multipart/form-data">
+    <div class="edit_book mb-3 row">
+        <div class="col-md-12 d-flex flex-column">
+            <div class="mb-3">
+                <label for="title">Название книги</label>
+                <input class="form-control" type="text" name="title" id="title" value="{{ book.title or '' }}">
+            </div>
+            <div class="mb-3">
+                <label for="genre">Жанры</label>
+                <select multiple class="form-select" name="genre_id" id="genre">
+                    <option value="0">Не выбрано</option>
+                    {% for genre in genres %}
+                    <option value="{{ genre.id }}" {% if genre.id in selected_genres_list %}selected{% endif %}>{{
+                        genre.genre_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="author">Автор</label>
+                <input class="form-control" type="text" name="author" id="author" value="{{ book.author or '' }}">
+            </div>
+            <div class="mb-3">
+                <label for="publisher">Издательство</label>
+                <input class="form-control" type="text" name="publisher" id="publisher"
+                    value="{{ book.publisher or '' }}">
+            </div>
+            <div class="mb-3">
+                <label for="amount">Количество страниц</label>
+                <input class="form-control" name="amount" type="number" id="amount" value="{{ book.amount or '500' }}">
+            </div>
+            <div class="mb-3">
+                <label for="year">Год издания</label>
+                <input class="form-control" type="number" min="1900" max="2070" step="1"
+                    value="{{ book.year or '2023' }}" name="year" id="year">
+            </div>
+            <div class="mb-3 d-flex flex-column flex-grow-1">
+                <label for="inputDesc">Описание книги</label>
+                <textarea type="text" class="form-control flex-grow-1" name="description" id="inputDesc"
+                    value="{{ book.description or '' }}">{{ book.description or '' }}</textarea>
+            </div>
+        </div>
+        {% if request.endpoint in ['book.new'] %}
+        <div class="col-md-12 d-flex flex-column">
+            <div class="mb-3">
+                <label for="cover_img">Обложка</label>
+                <input class="form-control" type="file" name="cover_img" id="cover_img">
+            </div>
+            <div class="mb-3 background-preview p-3 rounded d-flex align-items-center justify-content-center">
+                <img src="#" class="img-fluid d-none" alt="">
+                <label for="cover_img" class="btn btn-dark">Выбрать обложку</label>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="mb-3 text-center">
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </div>
+</form>
+{% endmacro %}
