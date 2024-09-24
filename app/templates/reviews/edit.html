@@ -7,10 +7,9 @@
     <h6 class="my-2 text-light text-center">{{ text | safe }}</h6>
 
     <div class="text-center mt-5 my-3">
-        <a class="btn btn-primary mx-3" href="{{ url_for('aprove', review_id=review_id) }}">Одобрить</a>
+        <a class="btn btn-primary mx-3" href="{{ url_for('approve', review_id=review_id) }}">Одобрить</a>
         <a class="btn btn-danger mx-3" href="{{ url_for('reject', review_id=review_id) }}">Отклонить</a>
     </div>
 </div>
-
 
 {% endblock %}

@@ -23,7 +23,7 @@
 
     {% if current_user.is_authenticated and not review %}
     <div class="text-center my-3">
-        <a class="btn btn-lg btn-primary" href="{{ url_for('book.review', book_id=book.id) }}">Написать рецензию</a>
+        <a class="btn btn-lg btn-primary" href="{{ url_for('book.add_review', book_id=book.id) }}">Написать рецензию</a>
     </div>
     {% endif %}
 

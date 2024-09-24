@@ -39,7 +39,7 @@
 
                         {% if current_user.can('edit') %}
                         <li><a class=" btn navbar-brand btn-lg text-dark dropdown-item"
-                                href="{{ url_for('reviews_moder') }}">Модерация рецензий</a></li>
+                               href="{{ url_for('reviews_moder') }}">Модерация рецензий</a></li>
                         {% endif %}
                         {% endif %}
                         <li><a class="dropdown-item" href="{{ url_for('auth.logout') }}">Выйти</a></li>

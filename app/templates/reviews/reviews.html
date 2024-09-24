@@ -10,19 +10,23 @@
         <div class="MyReviews flex-grow-1">
             <h5 class="text-light  ms-2  mt-2">{{ review.get_user() }}: Оценка {{ review.rating }}</h5>
             <p><span>{{ review.text | safe }}</span></p>
-            <h6 class="text-end me-2">
                 {% if review.status == 1 %}
+                <h6 class="text-light text-end me-2">
                     Рецензия на рассмотрении
+                </h6>
                 {% endif %}
 
                 {% if review.status == 2 %}
+                <h6 class="Approved text-end me-2">
                     Рецензия одобрена
+                </h6>
                 {% endif %}
 
                 {% if review.status == 3 %}
+                <h6 class="text-danger text-end me-2">
                     Рецензия отклонена
+                </h6>
                 {% endif %}
-            </h6>
         </div>
     </div>
 

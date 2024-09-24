@@ -63,6 +63,13 @@
 
 }
 
+.MyReviews h6{
+    color: #2CB67D;
+
+}
+
+
+
 .MyReviews p{
     color: #f7f7f7;
     margin-left: 30px;
@@ -108,3 +115,7 @@
     background-color: darkgrey;
 }
 
+.page_not_found{
+    color: #2CB67D;
+    height: 70vh;
+}

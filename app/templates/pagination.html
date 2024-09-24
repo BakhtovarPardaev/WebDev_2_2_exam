@@ -4,7 +4,7 @@
       <li class="page-item {% if page == 1 %} disabled {% endif %}"><a class="page-link" href="{{ url_for(endpoint, page=page-1) }}">предыдущая</a></li>
       {%set start = 1  %}
       {%set end = page_count %}
-
+      
       {% for i in range(start, end + 1) %}
       <li class="page-item {% if i == page %} active {% endif %}"><a class="page-link" href="{{ url_for(endpoint, page=i) }}">{{i}}</a></li>
       {% endfor%}

@@ -39,19 +39,18 @@
                 <textarea type="text" class="form-control flex-grow-1" name="description" id="inputDesc"
                     value="{{ book.description or '' }}">{{ book.description or '' }}</textarea>
             </div>
-        </div>
-        {% if request.endpoint in ['book.new'] %}
-        <div class="col-md-12 d-flex flex-column">
-            <div class="mb-3">
-                <label for="cover_img">Обложка</label>
-                <input class="form-control" type="file" name="cover_img" id="cover_img">
+
+            <div class="col-md-12 d-flex flex-column">
+                <div class="mb-3">
+                    <label for="cover_img">Обложка</label>
+                    <input class="form-control" type="file" name="cover_img" id="cover_img">
+                </div>
+                <div class="mb-3 background-preview p-3 rounded d-flex align-items-center justify-content-center">
+                    <img src="#" class="img-fluid d-none" alt="">
+                    <label for="cover_img" class="btn btn-dark">Выбрать обложку</label>
+                </div>
             </div>
-            <div class="mb-3 background-preview p-3 rounded d-flex align-items-center justify-content-center">
-                <img src="#" class="img-fluid d-none" alt="">
-                <label for="cover_img" class="btn btn-dark">Выбрать обложку</label>
-            </div>
         </div>
-        {% endif %}
     </div>
     <div class="mb-3 text-center">
         <button type="submit" class="btn btn-primary">Сохранить</button>

@@ -6,7 +6,7 @@
     
     <h2 class="my-3 text-light text-center text-uppercase font-weight-bold">Редактирование книги</h2>
     
-    {{ render_book_form(url_for('book.edit', book_id=book.id), genres, book, selected_genres_list) }}
+    {{ render_book_form(url_for('book.edit_book', book_id=book.id), genres, book, selected_genres_list) }}
     
 </div>
 {% endblock %}

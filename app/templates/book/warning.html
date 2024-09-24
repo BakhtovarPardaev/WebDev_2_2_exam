@@ -9,12 +9,12 @@
                     <h6 class="modal-title">Нельзя менять адрес строки, при повторном нарушении вы будете забанены </h6>
                 </div>
                 <div class="modal-body">
-                    <p>Введите "Извиняюсь" для продолжения.</p>
-                    <form id="apologyForm" action="{{ url_for('book.show', book_id=book.id) }}" method="GET">
+                    <p>Введите "Простите меня" для продолжения.</p>
+                    <form id="apologyForm" action="{{ url_for('book.display_book', book_id=book.id) }}" method="GET">
                         <div class="form-group">
                             <input type="text" class="form-control" id="apologyInput" name="apology" required>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-3" id="submitButton" disabled>Простите меня</button>
+                        <button type="submit" class="btn btn-primary mt-3" id="submitButton" disabled>Попросить прощение</button>
                     </form>
                 </div>
             </div>
@@ -28,7 +28,7 @@
         $(document).ready(function() {
             $('#apologyModal').modal('show');
             $('#apologyInput').on('input', function() {
-                if ($(this).val().toLowerCase() === 'извиняюсь') {
+                if ($(this).val().toLowerCase() === 'простите меня') {
                     $('#submitButton').prop('disabled', false);
                 } else {
                     $('#submitButton').prop('disabled', true);
