@@ -3,4 +3,5 @@
 **/gap/
 **/__pycache__/
 */README
+*/conf.py
 */script.py.mako
