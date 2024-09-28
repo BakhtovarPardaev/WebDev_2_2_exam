@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Логин</th>
+                <th scope="col">Имя</th>
+                <th scope="col">Фамилия</th>
+                <th scope="col">Отчество</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{{user.login}}</th>
+                <td>{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
+                <td>
+                  {% if user.middle_name %}
+                    {{user.middle_name}}
+                  {% endif %}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+{% endblock %}

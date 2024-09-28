@@ -1,0 +1,84 @@
+{% macro form_user(user, l_class=None, l_message_class=None, l_message=None, p_class=None, p_message_class=None, p_message=None, ln_class=None, ln_message_class=None, ln_message=None, fn_class=None, fn_message_class=None, fn_message=None, editable=True) %}
+<form method="POST">
+    <div class="mb-3">
+        <label for="login" class="form-label">Логин</label>
+        <input
+            name="login"
+            type="text"
+            class="form-control {{ l_class }}"
+            id="login"
+            aria-describedby="loginHelp"
+            value="{{ user.get('login', '') }}"
+            {% if not editable %}readonly{% endif %}
+        />
+        {% if l_message %}
+        <div id="loginHelp" class="{{ l_message_class }}">
+            {{ l_message }}
+        </div>
+        {% endif %}
+    </div>
+    {% if editable %}
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Пароль</label>
+        <input
+            name="password"
+            type="password"
+            class="form-control {{ p_class }}"
+            aria-describedby="pHelp"
+            id="exampleInputPassword1"
+            value="{{ user.get('password', '') }}"
+        />
+        {% if p_message %}
+        <div id="pHelp" class="{{ p_message_class }}">
+            {{ p_message }}
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+    <div class="mb-3">
+        <label for="last_name" class="form-label">Фамилия</label>
+        <input
+            name="last_name"
+            type="text"
+            class="form-control {{ ln_class }}"
+            id="last_name"
+            aria-describedby="lnHelp"
+            value="{{ user.get('last_name', '') }}"
+        />
+        {% if ln_message %}
+        <div id="lnHelp" class="{{ ln_message_class }}">
+            {{ ln_message }}
+        </div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        <label for="first_name" class="form-label">Имя</label>
+        <input
+            name="first_name"
+            type="text"
+            class="form-control {{ fn_class }}"
+            id="first_name"
+            aria-describedby="fnHelp"
+            value="{{ user.get('first_name', '') }}"
+        />
+        {% if fn_message %}
+        <div id="fnHelp" class="{{ fn_message_class }}">
+            {{ fn_message }}
+        </div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        <label for="middle_name" class="form-label">Отчество</label>
+        <input
+            name="middle_name"
+            type="text"
+            class="form-control"
+            id="middle_name"
+            value="{{ user.get('middle_name', '') }}"
+            aria-describedby="loginHelp"
+        />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>
+{% endmacro %}

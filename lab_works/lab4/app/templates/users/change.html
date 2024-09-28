@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Смена пароля</h1>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="password" class="form-label">Старый пароль</label>
+            <input
+                type="password"
+                class="form-control {{ old_password_class }}"
+                id="password"
+                name="password"
+                aria-describedby="oldPasswordHelp"
+            />
+            {% if old_password_message %}
+            <div id="oldPasswordHelp" class="{{ old_password_message_class }}">
+                {{ old_password_message }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="n_password" class="form-label">Новый пароль</label>
+            <input
+                type="password"
+                class="form-control {{ new_password_class }}"
+                id="n_password"
+                name="n_password"
+                aria-describedby="newPasswordHelp"
+            />
+            {% if new_password_message %}
+            <div id="newPasswordHelp" class="{{ new_password_message_class }}">
+                {{ new_password_message }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="n2_password" class="form-label">Подтвердите новый пароль</label>
+            <input
+                type="password"
+                class="form-control {{ confirm_password_class }}"
+                id="n2_password"
+                name="n2_password"
+                aria-describedby="confirmPasswordHelp"
+            />
+            {% if confirm_password_message %}
+            <div id="confirmPasswordHelp" class="{{ confirm_password_message_class }}">
+                {{ confirm_password_message }}
+            </div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+</div>
+{% endblock %}

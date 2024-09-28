@@ -1,0 +1,7 @@
+**/ve/
+**/venv/
+**/gap/
+**/__pycache__/
+*/README
+*/config.py
+*/script.py.mako
